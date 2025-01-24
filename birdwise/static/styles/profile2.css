@@ -184,6 +184,11 @@
       li {
         font-size: var(--font-size-heading-sm);
         padding-top: 3px;
+
+        a {
+          text-decoration: none;
+          color: var(--clr-gray-700);
+        }
       }
     }
   }
