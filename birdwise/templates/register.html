@@ -87,10 +87,10 @@
         <!-- Register Form -->
         <div class="form-container">
             <h2>Register</h2>
-            <form method="POST" action="{{ url_for('register') }}">
-                <input type="text" name="name" placeholder="Enter Your Name" required>
+            <form method="POST" action="{{ url_for('register_page') }}">
+                <input type="text" name="actual_name" placeholder="Enter Your Name" required>
                 <input type="text" name="username" placeholder="Enter Username" id="username" required>
-                <input type="email" name="email" placeholder="Enter Email" id="email" required>
+                <input type="email" name="email_id" placeholder="Enter Email" id="email" required>
                 <input type="password" name="password1" placeholder="Enter Password" id="password1" required>
                 <input type="password" name="password2" placeholder="Confirm Password" id="password2" required>
                 <button type="submit">Register</button>
