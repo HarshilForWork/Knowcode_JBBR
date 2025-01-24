@@ -119,95 +119,87 @@
         return contributions;
       }
 
-    function checkBadges(contributions) {
-      const badgesContainer = document.querySelector(".badges");
-      badgesContainer.innerHTML = ""; // Clear previous badges
+      function checkBadges(contributions) {
+        const badgesContainer = document.querySelector(".badges");
+        badgesContainer.innerHTML = ""; // Clear previous badges
 
-      let maxStreak = 0;
-      let currentStreak = 0;
+        let maxStreak = 0;
+        let currentStreak = 0;
 
-      // Calculate the maximum streak of consecutive contributions
-      for (let contributed of contributions) {
-        if (contributed) {
-          currentStreak++;
-          maxStreak = Math.max(maxStreak, currentStreak);
-        } else {
-          currentStreak = 0;
+        // Calculate maximum consecutive contribution streak
+        for (let contributed of contributions) {
+          if (contributed) {
+            currentStreak++;
+            maxStreak = Math.max(maxStreak, currentStreak);
+          } else {
+            currentStreak = 0;
+          }
+        }
+
+        // Assign badges based on consecutive contribution streak
+        if (maxStreak >= 3) {
+          const badge1 = document.createElement("img");
+          badge1.src = "/static/images/Badge1.png";
+          badge1.alt = "3-Day Streak Badge";
+          badge1.style.width = "100px";
+          badgesContainer.appendChild(badge1);
+        }
+
+        if (maxStreak >= 5) {
+          const badge2 = document.createElement("img");
+          badge2.src = "/static/images/Badge2.png";
+          badge2.alt = "5-Day Streak Badge";
+          badge2.style.width = "100px";
+          badgesContainer.appendChild(badge2);
+        }
+
+        if (maxStreak >= 7) {
+          const badge3 = document.createElement("img");
+          badge3.src = "/static/images/Badge3.png";
+          badge3.alt = "7-Day Streak Badge";
+          badge3.style.width = "100px";
+          badgesContainer.appendChild(badge3);
         }
       }
 
-      // Assign badges based on the maximum streak
-      if (maxStreak >= 3) {
-        const badge1 = document.createElement("img");
-        badge1.src = "/static/images/Badge1.png";
-        badge1.alt = "Badge 1";
-        badge1.style.width = "100px"; // Medium size
-        badgesContainer.appendChild(badge1);
-      }
+      function updateCalendar(month, year) {
+        calendarGrid.innerHTML = "";
 
-      if (maxStreak >= 5) {
-        const badge2 = document.createElement("img");
-        badge2.src = "/static/images/Badge2.png";
-        badge2.alt = "Badge 2";
-        badge2.style.width = "100px"; // Medium size
-        badgesContainer.appendChild(badge2);
-      }
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-      if (maxStreak >= 7) {
-        const badge3 = document.createElement("img");
-        badge3.src = "/static/images/Badge3.png";
-        badge3.alt = "Badge 3";
-        badge3.style.width = "100px"; // Medium size
-        badgesContainer.appendChild(badge3);
-      }
-    }
+        const monthNames = [
+          "January", "February", "March", "April", "May", "June", 
+          "July", "August", "September", "October", "November", "December"
+        ];
+        monthYearDisplay.textContent = `${monthNames[month]} ${year}`;
 
-    function updateCalendar(month, year) {
-      calendarGrid.innerHTML = "";
+        const contributions = generateRandomContributions(daysInMonth);
 
-      const firstDay = new Date(year, month, 1).getDay();
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-      const monthNames = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ];
-      monthYearDisplay.textContent = `${monthNames[month]} ${year}`;
-
-      const contributions = generateRandomContributions(daysInMonth);
-
-      for (let i = 0; i < firstDay; i++) {
-        const emptyDay = document.createElement("div");
-        emptyDay.classList.add("day", "empty");
-        calendarGrid.appendChild(emptyDay);
-      }
-
-      for (let day = 1; day <= daysInMonth; day++) {
-        const dayElement = document.createElement("div");
-        dayElement.textContent = day;
-        dayElement.classList.add("day");
-
-        // Apply contribution color if the day is marked as contributed
-        if (contributions[day - 1]) {
-          dayElement.classList.add('border-colored');
-          dayElement.title = `Day ${day}: Contributions made`; // Tooltip for contributed days
-        } else {
-          dayElement.title = `Day ${day}: No contributions`; // Tooltip for non-contributed days
+        for (let i = 0; i < firstDay; i++) {
+          const emptyDay = document.createElement("div");
+          emptyDay.classList.add("day", "empty");
+          calendarGrid.appendChild(emptyDay);
         }
 
-        calendarGrid.appendChild(dayElement);
+        for (let day = 1; day <= daysInMonth; day++) {
+          const dayElement = document.createElement("div");
+          dayElement.textContent = day;
+          dayElement.classList.add("day");
+
+          if (contributions[day - 1]) {
+            dayElement.classList.add('border-colored');
+            dayElement.title = `Day ${day}: Contributions made`;
+          } else {
+            dayElement.title = `Day ${day}: No contributions`;
+          }
+
+          calendarGrid.appendChild(dayElement);
+        }
+
+        // Pass the current month's contributions to checkBadges
+        checkBadges(contributions);
       }
-    }
 
     prevMonthButton.addEventListener("click", () => {
       currentMonth--;
