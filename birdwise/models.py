@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     actual_name = db.Column(db.String(length=60), nullable=False)
     email_id = db.Column(db.String(length=60), nullable=False, unique=True)
     password_hash = db.Column(db.String(length=60), nullable=False)
-    user_bio = db.Column(db.String(length=150), nullable=False)
+    user_bio = db.Column(db.String(length=150), nullable=True)
     profile_pic = db.Column(db.String(32), default='default.jpeg')
     badges = db.Column(db.String(32))
     uploads = db.relationship("Uploads", back_populates="user")
@@ -51,5 +51,5 @@ class Uploads(db.Model):
 # Uncomment and define this model if needed.
 
 # Create all tables
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#     db.create_all()
