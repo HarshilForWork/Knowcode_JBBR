@@ -176,6 +176,21 @@
 
       li {
         margin: 1rem;
+
+        a {
+            text-decoration: none;
+            /* Remove underline */
+            color: var(--clr-sidebar-text);
+            /* Inherit sidebar text color */
+            transition: color 0.3s ease, transform 0.2s ease;
+        
+            &:hover {
+              color: #642f1e;
+              /* Highlight color on hover */
+              transform: scale(1.1);
+              /* Slight zoom effect */
+            }
+          }
       }
     }
   }
@@ -317,41 +332,6 @@
     background-color: transparent;
     cursor: default;
   }
-
-  /* .less {
-    background-color: #161b22;
-  }
-
-  .low {
-    background-color: #40c463;
-  }
-
-  .medium {
-    background-color: #30a14e;
-  }
-
-  .high {
-    background-color: #216e39;
-  } */
-
-  /* .legend {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-
-    span {
-      font-size: 14px;
-      color: var(--clr-grey-800);
-    }
-  }
-
-  .legend div {
-    width: 20px;
-    height: 20px;
-    border-radius: 3px;
-  } */
 }
 
 @layer utilities {

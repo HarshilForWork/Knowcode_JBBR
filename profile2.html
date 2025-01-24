@@ -16,12 +16,12 @@
     <main class="main">
       <div class="sidebar">
         <nav class="nav">
-          <img src="Logo.jpeg" class="logo" />
+          <img src="Logo.png" class="logo" />
           <ul>
-            <li>Profile</li>
-            <li>Courses</li>
-            <li>Upload</li>
-            <li>Log out</li>
+            <li><a href="{{ url_for('profile_page') }}">Profile</a></li>
+            <li><a href="{{ url_for('courses_page') }}">Courses</a></li>
+            <li><a href="{{ url_for('upload_page') }}">Upload</a></li>
+            <li><a href="{{ url_for('logout_page') }}">Log Out</a></li>
           </ul>
         </nav>
       </div>
@@ -36,9 +36,9 @@
           />
           <h3 class="font-size-lg">Badges</h3>
           <div class="badges">
-            <img src="/Badge1.jpeg" alt="" />
-            <img src="/Badge2.jpeg" alt="" />
-            <img src="/Badge3.jpeg" alt="" />
+            <img src="Badge1.jpeg" alt="" />
+            <img src="Badge2.jpeg" alt="" />
+            <img src="Badge3.jpeg" alt="" />
           </div>
         </div>
 
@@ -88,16 +88,6 @@
             </div>
             <div class="calendar-grid" id="calendar-grid"></div>
           </div>
-
-          <!-- Legend -->
-          <!-- <div class="legend">
-            <span>Less</span>
-            <div class="less"></div>
-            <div class="low"></div>
-            <div class="medium"></div>
-            <div class="high"></div>
-            <span>More</span>
-          </div> -->
         </div>
       </div>
     </main>
