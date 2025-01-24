@@ -4,7 +4,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 
 # to create authentication
 from functools import wraps
-from flask import render_template, request, redirect, url_for, session
+from flask import render_template, request, redirect, url_for, session, flash
 
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
@@ -49,6 +49,20 @@ def register_page():
 @app.route('/profile')
 def profile_page():
     return render_template('profile2.html')
+
+@app.route('/my-courses')
+def my_courses_page():
+    return render_template('courses.html')
+
+@app.route('/my-uploads')
+def my_uploads_page():
+    return render_template('uploads.html')
+
+@app.route('/logout')
+def logout_page():
+    logout_user()
+    flash("You have been logged out!", category='info')
+    return redirect(url_for("home_page"))
 
 @app.route('/forgot_password')
 def forgot_password():

@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
-app = Flask(__name__, template_folder='birdwise/templates')
+app = Flask(__name__, template_folder='birdwise/templates', static_folder='birdwise\static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///birdwise.db'
 app.config['SECRET_KEY'] = '8b435b3f121b6273e153d976'
 db = SQLAlchemy(app)
