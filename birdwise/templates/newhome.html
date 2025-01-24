@@ -27,7 +27,7 @@
                     <button class="signin-button"><a href="{{ url_for('logout_page') }}">Log Out</a></button>
                 </ul>
             </nav>
-            <img src="birdwise\static\images\owl-svgrepo-com.svg" class="profile-img" />
+            <img src="{{ url_for('static', filename='images/owl-svgrepo-com.svg') }}" class="profile-img" />
         </div>
     </header>
 
@@ -169,9 +169,9 @@
     <footer>
         <div class="three-col">
             <div class="icons">
-                <img src="birdwise\static\images\twitter.svg" alt="" />
-                <img src="birdwise\static\images\instagram.svg" alt="" />
-                <img src="birdwise\static\images\facebook.svg" alt="" />
+                <img src="{{ url_for('static', filename='images/twitter.svg') }}" alt="" />
+                <img src="{{ url_for('static', filename='images/instagram.svg') }}" alt="" />
+                <img src="{{ url_for('static', filename='images/facebook.svg') }}" alt="" />
             </div>
             <div class="footer-list">
                 <ul role="list">
