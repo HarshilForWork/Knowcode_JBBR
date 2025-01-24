@@ -176,6 +176,11 @@
 
       li {
         margin: 1rem;
+
+        a {
+          text-decoration: none;
+          color: var(--clr-grey-700);
+        }
       }
     }
   }

@@ -16,12 +16,12 @@
     <main class="main">
       <div class="sidebar">
         <nav class="nav">
-          <img src="Logo.jpeg" class="logo" />
+          <img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo" />
           <ul role="list">
             <li>Profile</li>
             <li>Courses</li>
             <li>Upload</li>
-            <li>Log out</li>
+            <li><a href="{{ url_for('logout_page') }}">Log out</a></li>
           </ul>
         </nav>
       </div>

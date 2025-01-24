@@ -16,15 +16,15 @@
 <body>
     <header>
         <div class="horizontal-nav">
-            <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="" class="logo" />
+            <img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo" />
             <nav>
                 <ul role="list">
                     <li>About</li>
                     <li>Campaigns</li>
                     <li>Learn</li>
                     <li><a href="{{ url_for('quiz_page') }}">Quiz</a></li>
-                    <li>Upload</li>
-                    <button class="signin-button"><a href="{{ url_for('logout_page') }}">Log Out</a></button>
+                    <li>Upload</li><button class="signin-button"><a href="{{ url_for('logout_page') }}">Log Out</a></button>
+                    
                 </ul>
             </nav>
             <img src="{{ url_for('static', filename='images/owl-svgrepo-com.svg') }}" class="profile-img" />
