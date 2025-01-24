@@ -178,19 +178,19 @@
         margin: 1rem;
 
         a {
-            text-decoration: none;
-            /* Remove underline */
-            color: var(--clr-sidebar-text);
-            /* Inherit sidebar text color */
-            transition: color 0.3s ease, transform 0.2s ease;
-        
-            &:hover {
-              color: #642f1e;
-              /* Highlight color on hover */
-              transform: scale(1.1);
-              /* Slight zoom effect */
-            }
+          text-decoration: none;
+          /* Remove underline */
+          color: var(--clr-sidebar-text);
+          /* Inherit sidebar text color */
+          transition: color 0.3s ease, transform 0.2s ease;
+
+          &:hover {
+            color: #642f1e;
+            /* Highlight color on hover */
+            transform: scale(1.1);
+            /* Slight zoom effect */
           }
+        }
       }
     }
   }
@@ -204,9 +204,13 @@
 
   .badges {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
 
     img {
-      width: 50px;
+      width: 100px;
       height: auto;
     }
   }
@@ -306,16 +310,16 @@
 
   .day {
     width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #fff;
-      /* Default uncolored */
-      color: #000;
-      border-radius: 5px;
-      font-size: 14px;
-      cursor: pointer;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    /* Default uncolored */
+    color: #000;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
   }
 
   .day:hover {

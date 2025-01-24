@@ -30,7 +30,7 @@
         <div class="profile-photo-container background-image">
           <h2 class="font-heading-regular">Profile picture</h2>
           <img
-            src="{{ url_for('static', filename='images/owl-svgrepo-com.svg') }}"
+            src="{{ url_for('static', filename='images/owl-svgrepo-com.png') }}"
             alt="Profile image"
             class="profile-pic"
           />
@@ -118,6 +118,49 @@
 
         return contributions;
       }
+
+    function checkBadges(contributions) {
+      const badgesContainer = document.querySelector(".badges");
+      badgesContainer.innerHTML = ""; // Clear previous badges
+
+      let maxStreak = 0;
+      let currentStreak = 0;
+
+      // Calculate the maximum streak of consecutive contributions
+      for (let contributed of contributions) {
+        if (contributed) {
+          currentStreak++;
+          maxStreak = Math.max(maxStreak, currentStreak);
+        } else {
+          currentStreak = 0;
+        }
+      }
+
+      // Assign badges based on the maximum streak
+      if (maxStreak >= 3) {
+        const badge1 = document.createElement("img");
+        badge1.src = "Badge1.jpeg";
+        badge1.alt = "Badge 1";
+        badge1.style.width = "100px"; // Medium size
+        badgesContainer.appendChild(badge1);
+      }
+
+      if (maxStreak >= 5) {
+        const badge2 = document.createElement("img");
+        badge2.src = "Badge2.jpeg";
+        badge2.alt = "Badge 2";
+        badge2.style.width = "100px"; // Medium size
+        badgesContainer.appendChild(badge2);
+      }
+
+      if (maxStreak >= 7) {
+        const badge3 = document.createElement("img");
+        badge3.src = "Badge3.jpeg";
+        badge3.alt = "Badge 3";
+        badge3.style.width = "100px"; // Medium size
+        badgesContainer.appendChild(badge3);
+      }
+    }
 
     function updateCalendar(month, year) {
       calendarGrid.innerHTML = "";
