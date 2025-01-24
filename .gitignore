@@ -1,3 +1,5 @@
 config.env
 images
 __pycache__
+instance
+migrations
