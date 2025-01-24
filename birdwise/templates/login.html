@@ -95,9 +95,12 @@
         <div class="form-container">
             <h2>Login</h2>
             <form method="POST" action="{{ url_for('login_page') }}">
+                {{ form.hidden_tag() }} <!-- CSRF token here -->
+
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <button type="submit">Login</button>
+
                 <div class="remember-me-container">
                     <div>
                         <input type="checkbox" name="remember-me" id="remember-me">
