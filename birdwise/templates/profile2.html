@@ -36,9 +36,9 @@
           />
           <h3 class="font-size-lg">Badges</h3>
           <div class="badges">
-            <img src="Badge1.jpeg" alt="" />
-            <img src="Badge2.jpeg" alt="" />
-            <img src="Badge3.jpeg" alt="" />
+            <img src="/static/images/Badge1.png" alt="Badge 1">
+            <img src="/static/images/Badge2.png" alt="Badge 2">
+            <img src="/static/images/Badge3.png" alt="Badge 3">
           </div>
         </div>
 
@@ -139,7 +139,7 @@
       // Assign badges based on the maximum streak
       if (maxStreak >= 3) {
         const badge1 = document.createElement("img");
-        badge1.src = "Badge1.jpeg";
+        badge1.src = "/static/images/Badge1.png";
         badge1.alt = "Badge 1";
         badge1.style.width = "100px"; // Medium size
         badgesContainer.appendChild(badge1);
@@ -147,7 +147,7 @@
 
       if (maxStreak >= 5) {
         const badge2 = document.createElement("img");
-        badge2.src = "Badge2.jpeg";
+        badge2.src = "/static/images/Badge2.png";
         badge2.alt = "Badge 2";
         badge2.style.width = "100px"; // Medium size
         badgesContainer.appendChild(badge2);
@@ -155,7 +155,7 @@
 
       if (maxStreak >= 7) {
         const badge3 = document.createElement("img");
-        badge3.src = "Badge3.jpeg";
+        badge3.src = "/static/images/Badge3.png";
         badge3.alt = "Badge 3";
         badge3.style.width = "100px"; // Medium size
         badgesContainer.appendChild(badge3);
