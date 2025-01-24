@@ -1,189 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/profile2.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Outfit:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <main class="main">
-      <div class="sidebar">
-        <nav class="nav">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/profile2.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Outfit:wght@100..900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <main class="main">
+    <div class="sidebar">
+      <nav class="nav">
+        <a href="{{ url_for('new_home_page') }}">
           <img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo" alt="Logo">
-          <ul>
-            <li><a href="{{ url_for('profile_page') }}">Profile</a></li>
-            <li>Courses</li>
-            <li>Upload</li>
-            <li><a href="{{ url_for('logout_page') }}">Log out</a></li>
-          </ul>
-        </nav>
-      </div>
+        </a>
+        <ul>
+          <li><a href="{{ url_for('profile_page') }}">Profile</a></li>
+          <li>Courses</li>
+          <li>Upload</li>
+          <li><a href="{{ url_for('logout_page') }}">Log out</a></li>
+        </ul>
+      </nav>
+    </div>
 
-      <div class="profile-page">
-        <div class="profile-photo-container background-image">
-          <h2 class="font-heading-regular">Profile picture</h2>
-          <img
-            src="{{ url_for('static', filename='images/owl-svgrepo-com.svg') }}"
-            alt="Profile image"
-            class="profile-pic"
-          />
-          <h3 class="font-size-lg">Badges</h3>
-          <div class="badges">
-            <img src="Badge1.jpeg" alt="" />
-            <img src="Badge2.jpeg" alt="" />
-            <img src="Badge3.jpeg" alt="" />
-          </div>
-        </div>
-
-        <div class="profile-details-container">
-          <form>
-            <label class="font-size-md">Profile name</label>
-            <input type="text" class="input-field" placeholder="Name" />
-
-            <label class="font-size-md">Username</label>
-            <div class="username-field">
-              <span>@</span>
-              <input type="text" class="input-field" placeholder="Username" />
-            </div>
-
-            <label class="font-size-md">Email</label>
-            <input
-              type="text"
-              class="input-field"
-              placeholder="example@email.com"
-            />
-
-            <label class="font-size-md">About me</label>
-            <textarea class="input-field" placeholder="Bio"></textarea>
-
-            <label class="font-size-md">Upload new profile image: </label>
-            <input type="file" class="input-field" />
-
-            <button class="save-button">Save changes</button>
-          </form>
-
-          <h2 class="font-size-md">Calendar Heatmap</h2>
-          <div class="calendar-container">
-            <div class="month-header">
-              <button id="prev-month">&lt; Prev</button>
-              <div id="month-year"></div>
-              <button id="next-month">Next &gt;</button>
-            </div>
-
-            <div class="days-of-week">
-              <div>Su</div>
-              <div>Mo</div>
-              <div>Tu</div>
-              <div>We</div>
-              <div>Th</div>
-              <div>Fr</div>
-              <div>Sa</div>
-            </div>
-            <div class="calendar-grid" id="calendar-grid"></div>
-          </div>
+    <div class="profile-page">
+      <div class="profile-photo-container background-image">
+        <h2 class="font-heading-regular">Profile picture</h2>
+        <img src="{{ url_for('static', filename='images/owl-svgrepo-com.svg') }}" alt="Profile image"
+          class="profile-pic" />
+        <h3 class="font-size-lg">Badges</h3>
+        <div class="badges">
+          <img src="/static/images/Badge1.png" alt="Badge 1">
+          <img src="/static/images/Badge2.png" alt="Badge 2">
+          <img src="/static/images/Badge3.png" alt="Badge 3">
         </div>
       </div>
-    </main>
-  </body>
 
-  <script>
-    const calendarGrid = document.getElementById("calendar-grid");
-    const monthYearDisplay = document.getElementById("month-year");
-    const prevMonthButton = document.getElementById("prev-month");
-    const nextMonthButton = document.getElementById("next-month");
+      <div class="profile-details-container">
+        <form>
+          <label class="font-size-md">Profile name</label>
+          <input type="text" class="input-field" placeholder="Name" />
 
-    const today = new Date();
-    let currentMonth = today.getMonth();
-    let currentYear = today.getFullYear();
+          <label class="font-size-md">Username</label>
+          <div class="username-field">
+            <span>@</span>
+            <input type="text" class="input-field" placeholder="Username" />
+          </div>
 
-    // Randomly decide which days should have contributions
-      function generateRandomContributions(daysInMonth) {
-        const contributions = Array(daysInMonth).fill(false); // Initially, no contributions
-        const daysWithContributions = Math.floor(daysInMonth / 2); // Randomize ~50% of the days
+          <label class="font-size-md">Email</label>
+          <input type="text" class="input-field" placeholder="example@email.com" />
 
-        for (let i = 0; i < daysWithContributions; i++) {
-          let randomDay;
-          do {
-            randomDay = Math.floor(Math.random() * daysInMonth); // Pick a random day
-          } while (contributions[randomDay]); // Ensure no duplicates
-          contributions[randomDay] = true; // Mark this day as having contributions
-        }
+          <label class="font-size-md">About me</label>
+          <textarea class="input-field" placeholder="Bio"></textarea>
 
-        return contributions;
-      }
+          <label class="font-size-md">Upload new profile image: </label>
+          <input type="file" class="input-field" />
 
-    function updateCalendar(month, year) {
-      calendarGrid.innerHTML = "";
+          <button class="save-button">Save changes</button>
+        </form>
 
-      const firstDay = new Date(year, month, 1).getDay();
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
+        <h2 class="font-size-md">Calendar Heatmap</h2>
+        <div class="calendar-container">
+          <div class="month-header">
+            <button id="prev-month">&lt; Prev</button>
+            <div id="month-year"></div>
+            <button id="next-month">Next &gt;</button>
+          </div>
 
-      const monthNames = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ];
-      monthYearDisplay.textContent = `${monthNames[month]} ${year}`;
+          <div class="days-of-week">
+            <div>Su</div>
+            <div>Mo</div>
+            <div>Tu</div>
+            <div>We</div>
+            <div>Th</div>
+            <div>Fr</div>
+            <div>Sa</div>
+          </div>
+          <div class="calendar-grid" id="calendar-grid"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
 
-      const contributions = generateRandomContributions(daysInMonth);
+<script>
+  const calendarGrid = document.getElementById("calendar-grid");
+  const monthYearDisplay = document.getElementById("month-year");
+  const prevMonthButton = document.getElementById("prev-month");
+  const nextMonthButton = document.getElementById("next-month");
 
-      for (let i = 0; i < firstDay; i++) {
-        const emptyDay = document.createElement("div");
-        emptyDay.classList.add("day", "empty");
-        calendarGrid.appendChild(emptyDay);
-      }
+  const today = new Date();
+  let currentMonth = today.getMonth();
+  let currentYear = today.getFullYear();
 
-      for (let day = 1; day <= daysInMonth; day++) {
-        const dayElement = document.createElement("div");
-        dayElement.textContent = day;
-        dayElement.classList.add("day");
+  // Randomly decide which days should have contributions
+  function generateRandomContributions(daysInMonth) {
+    const contributions = Array(daysInMonth).fill(false); // Initially, no contributions
+    const daysWithContributions = Math.floor(daysInMonth / 2); // Randomize ~50% of the days
 
-        // Apply contribution color if the day is marked as contributed
-        if (contributions[day - 1]) {
-          dayElement.classList.add('border-colored');
-          dayElement.title = `Day ${day}: Contributions made`; // Tooltip for contributed days
-        } else {
-          dayElement.title = `Day ${day}: No contributions`; // Tooltip for non-contributed days
-        }
+    for (let i = 0; i < daysWithContributions; i++) {
+      let randomDay;
+      do {
+        randomDay = Math.floor(Math.random() * daysInMonth); // Pick a random day
+      } while (contributions[randomDay]); // Ensure no duplicates
+      contributions[randomDay] = true; // Mark this day as having contributions
+    }
 
-        calendarGrid.appendChild(dayElement);
+    return contributions;
+  }
+
+  function checkBadges(contributions) {
+    const badgesContainer = document.querySelector(".badges");
+    badgesContainer.innerHTML = ""; // Clear previous badges
+
+    let maxStreak = 0;
+    let currentStreak = 0;
+
+    // Calculate maximum consecutive contribution streak
+    for (let contributed of contributions) {
+      if (contributed) {
+        currentStreak++;
+        maxStreak = Math.max(maxStreak, currentStreak);
+      } else {
+        currentStreak = 0;
       }
     }
 
-    prevMonthButton.addEventListener("click", () => {
-      currentMonth--;
-      if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-      }
-      updateCalendar(currentMonth, currentYear);
-    });
+    // Assign badges based on consecutive contribution streak
+    if (maxStreak >= 3) {
+      const badge1 = document.createElement("img");
+      badge1.src = "/static/images/Badge1.png";
+      badge1.alt = "3-Day Streak Badge";
+      badge1.style.width = "100px";
+      badgesContainer.appendChild(badge1);
+    }
 
-    nextMonthButton.addEventListener("click", () => {
-      currentMonth++;
-      if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-      }
-      updateCalendar(currentMonth, currentYear);
-    });
+    if (maxStreak >= 5) {
+      const badge2 = document.createElement("img");
+      badge2.src = "/static/images/Badge2.png";
+      badge2.alt = "5-Day Streak Badge";
+      badge2.style.width = "100px";
+      badgesContainer.appendChild(badge2);
+    }
 
+    if (maxStreak >= 7) {
+      const badge3 = document.createElement("img");
+      badge3.src = "/static/images/Badge3.png";
+      badge3.alt = "7-Day Streak Badge";
+      badge3.style.width = "100px";
+      badgesContainer.appendChild(badge3);
+    }
+  }
+
+  function updateCalendar(month, year) {
+    calendarGrid.innerHTML = "";
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    monthYearDisplay.textContent = `${monthNames[month]} ${year}`;
+
+    const contributions = generateRandomContributions(daysInMonth);
+
+    for (let i = 0; i < firstDay; i++) {
+      const emptyDay = document.createElement("div");
+      emptyDay.classList.add("day", "empty");
+      calendarGrid.appendChild(emptyDay);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dayElement = document.createElement("div");
+      dayElement.textContent = day;
+      dayElement.classList.add("day");
+
+      if (contributions[day - 1]) {
+        dayElement.classList.add('border-colored');
+        dayElement.title = `Day ${day}: Contributions made`;
+      } else {
+        dayElement.title = `Day ${day}: No contributions`;
+      }
+
+      calendarGrid.appendChild(dayElement);
+    }
+
+    // Pass the current month's contributions to checkBadges
+    checkBadges(contributions);
+  }
+
+  prevMonthButton.addEventListener("click", () => {
+    currentMonth--;
+    if (currentMonth < 0) {
+      currentMonth = 11;
+      currentYear--;
+    }
     updateCalendar(currentMonth, currentYear);
-  </script>
+  });
+
+  nextMonthButton.addEventListener("click", () => {
+    currentMonth++;
+    if (currentMonth > 11) {
+      currentMonth = 0;
+      currentYear++;
+    }
+    updateCalendar(currentMonth, currentYear);
+  });
+
+  updateCalendar(currentMonth, currentYear);
+</script>
+
 </html>
