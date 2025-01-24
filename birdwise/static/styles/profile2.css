@@ -203,6 +203,11 @@
 
       li {
         margin: 1rem;
+
+        a {
+          text-decoration: none;
+          color: var(--clr-grey-700);
+        }
       }
     }
   }
@@ -328,8 +333,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #161b22;
-    color: #c9d1d9;
+    background-color: #ffffff;
+    color: #161b22;
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
@@ -339,44 +344,15 @@
     outline: 2px solid #58a6ff;
   }
 
+  .day.border-colored {
+    width: 35px;
+    height: 35px;
+    border: 5px solid #ff0;
+  }
+
   .empty {
     background-color: transparent;
     cursor: default;
-  }
-
-  .less {
-    background-color: #161b22;
-  }
-
-  .low {
-    background-color: #40c463;
-  }
-
-  .medium {
-    background-color: #30a14e;
-  }
-
-  .high {
-    background-color: #216e39;
-  }
-
-  .legend {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-
-    span {
-      font-size: 14px;
-      color: var(--clr-grey-800);
-    }
-  }
-
-  .legend div {
-    width: 20px;
-    height: 20px;
-    border-radius: 3px;
   }
 
   .signin-button {
