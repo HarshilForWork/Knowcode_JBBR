@@ -121,6 +121,10 @@ def forgot_password_post():
     
     return redirect(url_for('login'))
 
+@app.route('/my-quizzes')
+def quiz_page():
+    return render_template('quiz.html')
+
 @app.route('/reset_password')
 def reset_password():
     return render_template('resetpassword.html') 

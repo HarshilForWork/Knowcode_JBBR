@@ -22,10 +22,9 @@
                     <li>About</li>
                     <li>Campaigns</li>
                     <li>Learn</li>
-                    <li>Quiz</li>
+                    <li><a href="{{ url_for('quiz_page') }}">Quiz</a></li>
                     <li>Upload</li>
-                    <button class="signin-button"><a href="{{ url_for('login_page') }}">Sign In</a></button>
-                    <button class="save-button"><a href="{{ url_for('register_page') }}">Register</a></button>
+                    <button class="signin-button"><a href="{{ url_for('logout_page') }}">Log Out</a></button>
                 </ul>
             </nav>
         </div>
