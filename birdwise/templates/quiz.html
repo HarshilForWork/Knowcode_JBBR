@@ -16,9 +16,11 @@
     <main class="main">
       <div class="sidebar">
         <nav class="nav">
-          <img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo" />
+          <a href="{{ url_for('new_home_page') }}">
+            <img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo" />
+          </a>
           <ul role="list">
-            <li>Profile</li>
+            <li><a href="{{ url_for('profile_page') }}">Profile</a></li>
             <li>Courses</li>
             <li>Upload</li>
             <li><a href="{{ url_for('logout_page') }}">Log out</a></li>
