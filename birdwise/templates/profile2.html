@@ -44,26 +44,26 @@
       <div class="profile-details-container">
         <form>
           <label class="font-size-md">Profile name</label>
-          <input type="text" class="input-field" placeholder="Name" />
-
+          <input type="text" class="input-field" placeholder="Name" value="{{ user.actual_name }}" disabled />
+      
           <label class="font-size-md">Username</label>
           <div class="username-field">
             <span>@</span>
-            <input type="text" class="input-field" placeholder="Username" />
+            <input type="text" class="input-field" placeholder="Username" value="{{ user.username }}" disabled />
           </div>
-
+      
           <label class="font-size-md">Email</label>
-          <input type="text" class="input-field" placeholder="example@email.com" />
-
+          <input type="text" class="input-field" placeholder="example@email.com" value="{{ user.email_id }}" disabled />
+      
           <label class="font-size-md">About me</label>
-          <textarea class="input-field" placeholder="Bio"></textarea>
-
+          <textarea class="input-field" placeholder="Bio" disabled>{{ user.user_bio or '' }}</textarea>
+      
           <label class="font-size-md">Upload new profile image: </label>
           <input type="file" class="input-field" />
-
+      
           <button class="save-button">Save changes</button>
         </form>
-
+      
         <h2 class="font-size-md">Calendar Heatmap</h2>
         <div class="calendar-container">
           <div class="month-header">
@@ -71,7 +71,7 @@
             <div id="month-year"></div>
             <button id="next-month">Next &gt;</button>
           </div>
-
+      
           <div class="days-of-week">
             <div>Su</div>
             <div>Mo</div>

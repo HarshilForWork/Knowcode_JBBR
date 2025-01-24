@@ -83,8 +83,9 @@ def register_page():
     return render_template('register.html', form=form)
 
 @app.route('/profile')
+@login_required
 def profile_page():
-    return render_template('profile2.html')
+    return render_template('profile2.html', user=current_user)
 
 @app.route('/my-courses')
 def my_courses_page():

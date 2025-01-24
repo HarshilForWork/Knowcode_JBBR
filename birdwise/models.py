@@ -1,7 +1,6 @@
-from app import db, login_manager, app
-from app import bcrypt
 from flask_login import UserMixin
 from datetime import datetime
+from birdwise.extensions import db, login_manager, bcrypt
 
 # User loader function for Flask-Login
 @login_manager.user_loader
