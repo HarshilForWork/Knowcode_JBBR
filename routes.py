@@ -31,9 +31,12 @@ def auth_required(func):
     return inner
 
 @app.route('/')
-@auth_required
-def somefunc():
-    return 0
+@app.route('/home')
+def home_page():
+    return render_template('home.html')
+# @auth_required
+# def somefunc():
+#     return 0
 
 @app.route('/forgot_password')
 def forgot_password():
