@@ -87,15 +87,17 @@
         <!-- Register Form -->
         <div class="form-container">
             <h2>Register</h2>
-            <form>
-                <input type="text" placeholder="Enter Your Name" id="">
-                <input type="text" placeholder="Enter Username" id="username" required>
-                <input type="email" placeholder="Enter Email" id="email" required>
-                <input type="password" placeholder="Enter Password" id="password1" required>
-                <input type="password" placeholder="Confirm Password" id="password2" required>
-                <button type="submit"><a href="{{ url_for('login_page') }}">Register</a></button>
+            <form method="POST" action="{{ url_for('register') }}">
+                <input type="text" name="name" placeholder="Enter Your Name" required>
+                <input type="text" name="username" placeholder="Enter Username" id="username" required>
+                <input type="email" name="email" placeholder="Enter Email" id="email" required>
+                <input type="password" name="password1" placeholder="Enter Password" id="password1" required>
+                <input type="password" name="password2" placeholder="Confirm Password" id="password2" required>
+                <button type="submit">Register</button>
             </form>
-            <div class="go-to-login">Already have an account? Click <a href="{{ url_for('login_page') }}">here</a></div>
+            <div class="go-to-login">
+                Already have an account? Click <a href="{{ url_for('login_page') }}">here</a>
+            </div>
         </div>
     </div>
 </body>
