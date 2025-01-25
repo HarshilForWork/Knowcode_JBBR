@@ -1,0 +1,6 @@
+streamlit
+birdnetlib
+google-generativeai
+requests
+tensorflow
+resampy

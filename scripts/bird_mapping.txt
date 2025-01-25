@@ -1,0 +1,107 @@
+# Comprehensive mapping of Indian bird species with their ImageNet-like class IDs
+bird_labels = {
+    # Common Birds
+    100: "House Sparrow",
+    101: "Common Myna",
+    102: "Indian Crow",
+    103: "Blue Rock Pigeon",
+    104: "Indian Parrot (Rose-ringed Parakeet)",
+    
+    # Birds of Prey
+    200: "Indian Eagle (Crested Serpent Eagle)",
+    201: "Shikra",
+    202: "Black Kite",
+    203: "Brahminy Kite",
+    204: "White-bellied Sea Eagle",
+    
+    # Water Birds
+    300: "Indian Pond Heron",
+    301: "Great Egret",
+    302: "Little Cormorant",
+    303: "Indian Darter",
+    304: "Painted Stork",
+    
+    # Colorful Birds
+    400: "Indian Roller",
+    401: "Kingfisher (Common)",
+    402: "Coppersmith Barbet",
+    403: "Purple Sunbird",
+    404: "Bee-eater (Green)",
+    
+    # Forest and Woodland Birds
+    500: "Red Junglefowl",
+    501: "Indian Peafowl (Peacock)",
+    502: "Great Hornbill",
+    503: "Malabar Pied Hornbill",
+    504: "Oriental Magpie-Robin",
+    
+    # Grassland and Open Country Birds
+    600: "Indian Bushlark",
+    601: "Indian Courser",
+    602: "Yellow-wattled Lapwing",
+    603: "Indian Prinia",
+    604: "Ashy Prinia",
+    
+    # Wetland and Marsh Birds
+    700: "Pheasant-tailed Jacana",
+    701: "Purple Moorhen",
+    702: "White-breasted Waterhen",
+    703: "River Tern",
+    704: "Bronze-winged Jacana",
+    
+    # Specialized Birds
+    800: "Vulture (Long-billed)",
+    801: "White-backed Vulture",
+    802: "Indian Scops Owl",
+    803: "Great Horned Owl",
+    804: "Alexandrine Parakeet",
+    
+    # Endemic and Rare Species
+    900: "Nilgiri Flycatcher",
+    901: "Malabar Parakeet",
+    902: "Great Indian Bustard",
+    903: "Himalayan Monal",
+    904: "Jerdon's Courser",
+
+    # Critically Endangered Species
+    1000: "Great Indian Bustard",
+    1001: "Bengal Florican",
+    1002: "White-backed Vulture",
+    1003: "Long-billed Vulture",
+    1004: "Red-headed Vulture",
+    
+    # Endangered Species
+    2000: "Himalayan Monal",
+    2001: "Nilgiri Flycatcher",
+    2002: "Jerdon's Courser",
+    2003: "Forest Owlet",
+    2004: "Narcondam Hornbill",
+    
+    # Rare and Endemic Species
+    3000: "Andaman Crake",
+    3001: "Nicobar Megapode",
+    3002: "Malabar Parakeet",
+    3003: "Nilgiri Wood Pigeon",
+    3004: "Broad-tailed Grassbird",
+    
+    # Exotic and Uncommon Species
+    4000: "Indian Skimmer",
+    4001: "Greater Adjutant Stork",
+    4002: "Lesser Adjutant Stork",
+    4003: "Masked Finfoot",
+    4004: "Black-bellied Tern",
+    
+    # Rare Migratory Species
+    5000: "Siberian Crane",
+    5001: "Greater Spotted Eagle",
+    5002: "Eastern Imperial Eagle",
+    5003: "Spoon-billed Sandpiper",
+    5004: "Bar-headed Goose",
+    
+    # High-Altitude Rare Species
+    6000: "Tibetan Snowcock",
+    6001: "Himalayan Griffon",
+    6002: "Lammergeier",
+    6003: "Snow Partridge",
+    6004: "Tibetan Lark"
+}
