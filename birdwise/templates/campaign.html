@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wings of Mumbai</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/profile2.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            background-color: #f9ffe8;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .card_container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .card {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background-color: #fff5d8;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            background-color: #f27e72;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .card-location,
+        .card-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .card-location img,
+        .card-date img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .card-button {
+            align-self: flex-start;
+            padding: 8px 16px;
+            font-size: 1rem;
+            border: 1px solid #d3d3d3;
+            border-radius: 10px;
+            color: #aaa;
+            background-color: #f9f9f9;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="main">
+    <div class="sidebar">
+        <nav class="nav">
+            <a href="{{ url_for('new_home_page') }}">
+                <img src="{{ url_for('static', filename='images/Logo.png') }}" class="logo" alt="Logo">
+            </a>
+            <ul>
+                <li><a href="{{ url_for('profile_page') }}">Profile</a></li>
+                <li>Courses</li>
+                <li>Upload</li>
+                <li><a href="{{ url_for('logout_page') }}">Log out</a></li>
+            </ul>
+        </nav>
+    </div>
+    </main>
+
+    <div class="card_container">
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/wings_of_mumbai.jpg') }}" alt="Gateway with Wings">
+            </div>
+            <div class="card-content">
+                <h1 class="card-title">Wings of Mumbai</h1>
+                <p class="card-location">
+                    <img src="{{ url_for('static', filename='images/location.png') }}" alt="Location">
+                    Dadar
+                </p>
+                <p class="card-date">
+                    <img src="{{ url_for('static', filename='images/date.png') }}" alt="Date">
+                    March 1, 2025 - March 31, 2025
+                </p>
+                <button class="card-button">Fundraiser</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/mumbai_bird_rescue.jpg') }}" alt="Mumbai Bird Rescue">
+            </div>
+            <div class="card-content">
+                <h1 class="card-title">Mumbai Birdwatchers' Rescue</h1>
+                <p class="card-location">
+                    <img src="{{ url_for('static', filename='images/location.png') }}" alt="Location">
+                    Bandra
+                </p>
+                <p class="card-date">
+                    <img src="{{ url_for('static', filename='images/date.png') }}" alt="Date">
+                    April 15, 2025 - May 15, 2025
+                </p>
+                <button class="card-button">Fundraiser</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/feather_in_sky.jpg') }}" alt="Feathers In The Sky">
+            </div>
+            <div class="card-content">
+                <h1 class="card-title">Feathers In The Sky</h1>
+                <p class="card-location">
+                    <img src="{{ url_for('static', filename='images/location.png') }}" alt="Location">
+                    Marines
+                </p>
+                <p class="card-date">
+                    <img src="{{ url_for('static', filename='images/date.png') }}" alt="Date">
+                    April 15, 2025 - May 15, 2025
+                </p>
+                <button class="card-button">Fundraiser</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/save_migrants.jpg') }}" alt="Save The Migrants">
+            </div>
+            <div class="card-content">
+                <h1 class="card-title">Save The Migrants</h1>
+                <p class="card-location">
+                    <img src="{{ url_for('static', filename='images/location.png') }}" alt="Location">
+                    Marines
+                </p>
+                <p class="card-date">
+                    <img src="{{ url_for('static', filename='images/date.png') }}" alt="Date">
+                    October 1, 2025 - November 30, 2025
+                </p>
+                <button class="card-button">Fundraiser</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/mumbai_raptors_init.jpg') }}" alt="Mumbai Raptors Initiative">
+            </div>
+            <div class="card-content">
+                <h1 class="card-title">Mumbai Raptors Initiative</h1>
+                <p class="card-location">
+                    <img src="{{ url_for('static', filename='images/location.png') }}" alt="Location">
+                    Marines
+                </p>
+                <p class="card-date">
+                    <img src="{{ url_for('static', filename='images/date.png') }}" alt="Date">
+                    July 10, 2025 - August 10, 2025
+                </p>
+                <button class="card-button">Fundraiser</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

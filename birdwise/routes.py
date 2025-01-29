@@ -101,6 +101,10 @@ def logout_page():
     flash("You have been logged out!", category='info')
     return redirect(url_for("home_page"))
 
+@app.route('/campaigns')
+def campaign_page():
+    return render_template('campaign.html')
+
 @app.route('/forgot_password')
 def forgot_password():
     return render_template('forgotpassword.html')

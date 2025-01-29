@@ -20,7 +20,7 @@
             <nav>
                 <ul role="list">
                     <li>About</li>
-                    <li>Campaigns</li>
+                    <li><a href="{{ url_for('campaign_page') }}">Campaigns</a></li>
                     <li>Learn</li>
                     <li><a href="{{ url_for('quiz_page') }}">Quiz</a></li>
                     <li>Upload</li><button class="signin-button"><a href="{{ url_for('logout_page') }}">Log Out</a></button>
